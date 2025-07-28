@@ -1,0 +1,7 @@
+---
+- name: Uninstall k8s-infra Helm chart
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Uninstall Helm release
+      command: helm uninstall k8s-infra -n default

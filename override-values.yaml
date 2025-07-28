@@ -1,25 +1,2 @@
-global:
-  cloud: others
-  clusterName: my-cluster              # change to your cluster name
-  deploymentEnvironment: dev           # dev, staging, or prod
-
-otelCollectorEndpoint: ingest.us.signoz.cloud:443   # or ingest.eu.signoz.cloud if you're in EU
-otelInsecure: false
-
-signozApiKey: YOUR_SIGNOZ_API_KEY     # replace this with your actual API key from SigNoz
-
-presets:
-  otlpExporter:
-    enabled: true
-  loggingExporter:
-    enabled: false
-  hostMetrics:
-    enabled: true
-  kubeletMetrics:
-    enabled: true
-  clusterMetrics:
-    enabled: true
-  kubernetesAttributes:
-    enabled: true
-  k8sEvents:
-    enabled: true
+otelCollector:
+  endpoint: "http://<TRUENAS-IP>:4317"

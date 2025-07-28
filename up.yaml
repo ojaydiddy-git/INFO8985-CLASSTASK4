@@ -1,0 +1,19 @@
+---
+- name: Install k8s-infra Helm chart
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Add SigNoz Helm repo
+      command: helm repo add signoz https://charts.signoz.io
+
+    - name: Update Helm repo
+      command: helm repo update
+
+    - name: Install k8s-infra chart
+      command: >
+        helm install k8s-infra signoz/k8s-infra
+        --namespace default
+        --create-namespace
+        -f override-values.yaml
+      args:
+        chdir: "{{ playbook_dir }}/.."
